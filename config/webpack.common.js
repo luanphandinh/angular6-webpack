@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -44,15 +44,16 @@ module.exports = {
         use: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       {
-        test: /\.(scss|css)$/i,
+        test: /\.(scss|css)$/,
         exclude: helpers.root('src', 'app'),
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader?sourceMap', 'sass-loader?sourceMap']
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader?sourceMap',
+          'sass-loader?sourceMap'
+        ]
       },
       {
-        test: /\.(scss|css)$/i,
+        test: /\.(scss|css)$/,
         include: helpers.root('src', 'app'),
         use: ['raw-loader', 'sass-loader?sourceMap']
       }

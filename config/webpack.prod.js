@@ -1,9 +1,10 @@
-var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const commonConfig = require('./webpack.common.js');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const helpers = require('./helpers');
 
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
@@ -28,13 +29,17 @@ module.exports = webpackMerge(commonConfig, {
         uglifyOptions: {
           mangle: true
         }
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ]
   },
 
     plugins: [
       new webpack.NoEmitOnErrorsPlugin(),
-      new ExtractTextPlugin('[name].[hash].css'),
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      }),
       new webpack.DefinePlugin({
         'process.env': {
             ENV: JSON.stringify(ENV)
