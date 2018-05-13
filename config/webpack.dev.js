@@ -27,6 +27,10 @@ module.exports = webpackMerge(commonConfig, {
       modules: false,
       warnings: false,
       children: false,
+    },
+    overlay: {
+      warnings: false,
+      errors: true
     }
   }
 });

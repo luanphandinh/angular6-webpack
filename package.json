@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 9090",
     "prod": "npm run clean && NODE_ENV='production' webpack -p",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "build": "npm run clean && webpack --config config/webpack.prod.js --progress --profile --bail",
     "clean": "rimraf dist"
   },
   "keywords": [],
