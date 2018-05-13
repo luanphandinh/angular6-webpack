@@ -1,4 +1,3 @@
-module.exports = require('./config/webpack.dev.js');
 var isProd = process.env.NODE_ENV === 'production';
 
 if (isProd) {
