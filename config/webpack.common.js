@@ -18,6 +18,14 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: {
+          emitErrors: true
+        }
+      },
+      {
+        test: /\.ts$/,
         use: [
           {
             loader: 'awesome-typescript-loader',
