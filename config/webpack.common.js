@@ -44,14 +44,17 @@ module.exports = {
         use: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/i,
         exclude: helpers.root('src', 'app'),
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader?sourceMap', 'sass-loader?sourceMap']
+        })
       },
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/i,
         include: helpers.root('src', 'app'),
-        use: 'raw-loader'
+        use: ['raw-loader', 'sass-loader?sourceMap']
       }
     ]
   },
