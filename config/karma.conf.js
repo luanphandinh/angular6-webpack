@@ -1,5 +1,4 @@
 const webpackConfig = require('./webpack.test');
-const path = require('path');
 const helper = require('./helpers');
 
 module.exports = function (config) {
