@@ -42,7 +42,7 @@ describe('Go1CardComponent', () => {
   it('should show image', () => {
     // component.image = 'http://image';
     // component.ngOnInit();
-    // const imageUrl = component.getBackgroundImageStyle();
+    // const imageUrl = component.getLogoStyle();
     // expect(imageUrl).toEqual({ backgroundImage: 'url(\'http://image\')' });
     // fixture.detectChanges();
     // expect(element.querySelector('.go1-card--cover').getAttribute('style')).toBe('background-image: url("http://image");');

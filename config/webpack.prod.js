@@ -7,10 +7,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const helpers = require('./helpers');
 
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
+const ENV = process.env.NODE_ENV = process.env.ENV = 'productions';
 
 module.exports = webpackMerge(commonConfig, {
-  mode: 'production',
+  mode: 'productions',
   devtool: 'source-map',
 
   output: {

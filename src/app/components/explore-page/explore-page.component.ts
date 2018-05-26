@@ -28,14 +28,11 @@ export class ExplorePageComponent implements OnInit {
 
   ngOnInit() {
     this.items = [];
-    this.fetchOptions = {
-      page: 0,
-    };
     this.exploreService.fetchOptions.subscribe((options: ExploreFetchOption) => {
       this.fetchOptions = options;
+      this.fetchOptions.page = 1;
       this.fetchMovies();
     });
-    this.fetchMovies();
   }
 
   fetchMovies() {
@@ -52,7 +49,7 @@ export class ExplorePageComponent implements OnInit {
     this.total = data.total_results;
     const items: Go1ViewItem[] = [];
     data.results.forEach((result: any) => {
-      const movie = Movie.createFromReponse(result);
+      const movie = Movie.createFromResponse(result);
       items.push(new Go1ViewItem(MovieCardComponent, movie));
     });
     if (this.fetchOptions.page === 1) {

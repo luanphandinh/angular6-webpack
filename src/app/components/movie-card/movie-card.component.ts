@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../../shared/movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'movie-card',
@@ -21,12 +22,13 @@ export class MovieCardComponent implements OnInit {
   @Input() isHover: boolean;
 
   constructor(
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
 
   onClickCard($event: any) {
-    // this.router.navigateByUrl(`app/course/${this.data.id}`);
+    this.router.navigateByUrl(`app/movie/${this.data.id}`);
   }
 }

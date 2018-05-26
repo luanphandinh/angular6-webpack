@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 
-import { GatewayService } from 'app/services/gateway.service';
+import { Movie } from '../shared/movie';
+import { GatewayService } from './gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class CourseService {
+export class MovieService {
 
   constructor(
     private gateWay: GatewayService,
   ) {
   }
 
+  fetchMovie(id: number): Promise<Movie> {
+    const endpoint = ['movie', id].join('/');
+    return this.gateWay.getApi(endpoint)
+      .toPromise()
+      .then((data: any) => Movie.createMovieDetailFromResponse(data));
+  }
 }
