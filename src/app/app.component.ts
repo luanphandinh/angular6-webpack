@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   styleUrls: ['./app.component.css'],
   template: `
+    <ngx-loading-bar [includeSpinner]="false"></ngx-loading-bar>
     <router-outlet></router-outlet>
   `,
 })

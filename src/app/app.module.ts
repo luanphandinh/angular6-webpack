@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 import { AppComponent } from './app.component';
 import { CommonComponentsModule } from './components/common/common-components.module';
@@ -23,6 +24,7 @@ import { MovieDetailResolver } from './components/movie-detail/movie-detail-reso
     NgbModule.forRoot(),
     CommonComponentsModule,
     HttpClientModule,
+    LoadingBarHttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [
