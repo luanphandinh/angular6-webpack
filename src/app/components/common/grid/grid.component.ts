@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
-import { Go1ViewItem } from '../go1-view-item/go1-view-item';
+import { GridViewItem } from '../grid-view-item/grid-view-item';
 
 export interface CheckedMap {
   [id: string]: boolean;
@@ -16,11 +16,11 @@ export interface CheckedMap {
 
 @Component({
   selector: 'go1-grid',
-  templateUrl: './go1-grid.component.html',
-  styleUrls: ['./go1-grid.component.css'],
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.css'],
 })
-export class Go1GridComponent implements OnInit, OnChanges {
-  @Input() items: Go1ViewItem[];
+export class GridComponent implements OnInit, OnChanges {
+  @Input() items: GridViewItem[];
 
   @Output() loadItems = new EventEmitter();
   @Output() selectItem = new EventEmitter<{ data: any, isChecked: boolean }>();
@@ -46,7 +46,7 @@ export class Go1GridComponent implements OnInit, OnChanges {
     }
   }
 
-  onSelectItem(selectedItem: Go1ViewItem) {
+  onSelectItem(selectedItem: GridViewItem) {
     this.lastSelectedCount = this.selectedCount;
     if (!this.checked[selectedItem.data.id]) {
       this.selectedCount += 1;

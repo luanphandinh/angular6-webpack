@@ -1,19 +1,19 @@
 import { Component, Input, ViewChild, OnInit, ComponentFactoryResolver } from '@angular/core';
 
-import { Go1ViewItem } from './go1-view-item';
-import { Go1ViewItemDirective } from './go1-view-item.directive';
-import { Go1ViewComponentInterface } from './go1-view-component-interface';
+import { GridViewItem } from './grid-view-item';
+import { GridViewItemDirective } from './grid-view-item.directive';
+import { GridViewComponentInterface } from './grid-view-component-interface';
 
 @Component({
   selector: 'go1-view-item',
   template: `
-    <ng-template go1ViewItemHost></ng-template>
+    <ng-template gridViewItemHost></ng-template>
   `,
 })
-export class Go1ViewItemComponent implements OnInit {
-  @Input() item: Go1ViewItem;
+export class GridViewItemComponent implements OnInit {
+  @Input() item: GridViewItem;
   @Input() layout: string;
-  @ViewChild(Go1ViewItemDirective) go1ViewItemHost: Go1ViewItemDirective;
+  @ViewChild(GridViewItemDirective) go1ViewItemHost: GridViewItemDirective;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -29,8 +29,8 @@ export class Go1ViewItemComponent implements OnInit {
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<Go1ViewComponentInterface>componentRef.instance).data = this.item.data;
-    (<Go1ViewComponentInterface>componentRef.instance).layout = this.layout;
+    (<GridViewComponentInterface>componentRef.instance).data = this.item.data;
+    (<GridViewComponentInterface>componentRef.instance).layout = this.layout;
   }
 
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'go1-card',
-  templateUrl: './go1-card.component.html',
-  styleUrls: ['./go1-card.component.scss'],
+  selector: 'common-card-view',
+  templateUrl: './common-card.component.html',
+  styleUrls: ['./common-card.component.scss'],
 })
-export class Go1CardComponent implements OnInit {
+export class CommonCardViewComponent implements OnInit {
   @Input() image?: string;
   @Input() overview?: string;
   @Input() title?: string;

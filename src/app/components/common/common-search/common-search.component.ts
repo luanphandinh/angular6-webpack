@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'go1-search',
-  templateUrl: './go1-search.component.html',
-  styleUrls: ['./go1-search.component.css'],
+  selector: 'common-search',
+  templateUrl: './common-search.component.html',
+  styleUrls: ['./common-search.component.css'],
 })
-export class Go1SearchComponent implements OnInit {
+export class CommonSearchComponent implements OnInit {
   @Input() delayOnType: number;
   @Input() searchItems: any[];
   @Input() disableSearch: boolean;

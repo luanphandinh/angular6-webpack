@@ -1,9 +1,9 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[go1ViewItemHost]',
+  selector: '[gridViewItemHost]',
 })
-export class Go1ViewItemDirective {
+export class GridViewItemDirective {
 
   constructor(public viewContainerRef: ViewContainerRef) { }
 

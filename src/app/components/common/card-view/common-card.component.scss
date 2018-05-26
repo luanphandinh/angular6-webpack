@@ -1,6 +1,6 @@
 @import '../../../styles/variables';
 
-.go1-card {
+.common-card-view {
   font-family: "Open Sans";
   border-radius: 4px;
   position: relative;
@@ -8,7 +8,7 @@
   color: $go1-accent;
 }
 
-.go1-card--cover {
+.common-card-view--cover {
   cursor: pointer;
   background-color: $go1-subbg;
   background-repeat: no-repeat;
@@ -35,17 +35,17 @@
 }
 
 @media (min-width: $desk) {
-  .go1-card--cover {
+  .common-card-view--cover {
     &:after {
       transition: 0.2s all;
       background-color: rgba(0, 0, 0, 0.05);
     }
   }
 
-  .go1-card {
+  .common-card-view {
     &:hover,
     &.hover {
-      .go1-card--cover {
+      .common-card-view--cover {
         &:after {
           background-color: rgba(18, 31, 34, 0.6);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@
   }
 }
 
-.go1-card--inner {
+.common-card-view--inner {
   border-radius: 4px;
   position: relative;
   z-index: 2;
@@ -68,16 +68,16 @@
 }
 
 @media (min-width: $mobile) {
-  .go1-card--inner {
+  .common-card-view--inner {
     height: 430px;
   }
 }
 
-.go1-card--content {
+.common-card-view--content {
   padding: 5px 0px;
 }
 
-.go1-card--content {
+.common-card-view--content {
   &-text,
   &-overview,
   &-author {
@@ -105,7 +105,7 @@
   }
 }
 
-.go1-card--content-title {
+.common-card-view--content-title {
   $line-height: 24px;
 
   max-height: (3 * $line-height) + 3px;
@@ -119,7 +119,7 @@
     margin-bottom: 1px;
   }
 
-  & + .go1-card--event {
+  & + .common-card-view--event {
     margin-top: 4px;
   }
 }

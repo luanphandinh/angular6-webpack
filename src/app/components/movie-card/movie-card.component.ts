@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'movie-card',
   styleUrls: ['./movie-card.component.css'],
   template: `
-    <go1-card
+    <common-card-view
       [image]="data.image"
       [overview]="data.overview"
       [title]="data.title"
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
       [isHover]="data.isHover"
       [cardObject]="data"
       (clickCard)="onClickCard($event)">
-    </go1-card>
+    </common-card-view>
   `,
 })
 export class MovieCardComponent implements OnInit {
