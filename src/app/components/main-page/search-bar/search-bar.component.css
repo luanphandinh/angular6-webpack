@@ -1,0 +1,3 @@
+:host ::ng-deep .search-wrapper button {
+  background-color: rgba(4,204,107,0.8);
+}

@@ -9,6 +9,7 @@ import { Go1CardComponent } from './card-view/go1-card.component';
 import { Go1GridComponent } from './go1-grid/go1-grid.component';
 import { Go1ViewItemComponent } from './go1-view-item/go1-view-item.component';
 import { Go1ViewItemDirective } from './go1-view-item/go1-view-item.directive';
+import { Go1SearchComponent } from './go1-search/go1-search.component';
 
 @NgModule({
   imports: [
@@ -24,10 +25,12 @@ import { Go1ViewItemDirective } from './go1-view-item/go1-view-item.directive';
     Go1ViewItemComponent,
     Go1ViewItemDirective,
     Go1CardComponent,
+    Go1SearchComponent,
   ],
   exports: [
     Go1GridComponent,
     Go1CardComponent,
+    Go1SearchComponent,
   ],
 })
 export class CommonComponentsModule { }

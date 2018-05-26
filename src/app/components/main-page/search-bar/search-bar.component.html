@@ -1,0 +1,9 @@
+<go1-search
+  class="go1-search"
+  [delayOnType]="1000"
+  [searchItems]="searchItems"
+  [helpText]="'Search movies...'"
+  (textChange)="onSearchTextChanged($event)"
+  (search)="doSearch($event)"
+  (selectItem)="selectSearchItem($event)">
+</go1-search>

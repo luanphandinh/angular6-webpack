@@ -21,6 +21,7 @@ import { PeopleCardComponent } from './components/people-card/people-card.compon
 import { TopCastListComponent } from './components/movie-detail/caster/top-cast-list.component';
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewsComponent } from './components/movie-detail/reviews/reviews.component';
+import { SearchBarComponent } from './components/main-page/search-bar/search-bar.component';
 
 import '../assets/css/global.css';
 
@@ -43,6 +44,7 @@ import '../assets/css/global.css';
     TopCastListComponent,
     ReviewComponent,
     ReviewsComponent,
+    SearchBarComponent,
   ],
   bootstrap: [
     AppComponent,

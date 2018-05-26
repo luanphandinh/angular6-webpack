@@ -12,17 +12,18 @@ export class ExploreService {
 
   private fetchOptionsSubject: BehaviorSubject<ExploreFetchOption>;
   private fetchOptions$: ExploreFetchOption;
+  defaultFetchOption = {
+    language: 'en-US',
+    sort_by: 'popularity.desc',
+    include_adult: false,
+    include_video: false,
+    page: 1,
+  };
 
   constructor(
     private  gateWay: GatewayService,
   ) {
-    this.fetchOptions$ = {
-      language: 'en-US',
-      sort_by: 'popularity.desc',
-      include_adult: false,
-      include_video: false,
-      page: 1,
-    };
+    this.fetchOptions$ = { ...this.defaultFetchOption };
 
     this.fetchOptionsSubject = new BehaviorSubject<ExploreFetchOption>(this.fetchOptions$);
     this.fetchOptions = this.fetchOptionsSubject.asObservable();
@@ -30,7 +31,7 @@ export class ExploreService {
 
   extendOptions(options: ExploreFetchOption, replace: boolean = false) {
     if (replace) {
-      this.fetchOptions$ = { ...options };
+      this.fetchOptions$ = { ...this.defaultFetchOption, ...options };
       this.fetchOptionsSubject.next(this.fetchOptions$);
       return;
     }
@@ -39,7 +40,10 @@ export class ExploreService {
   }
 
   fetchMovies(fetchOptions: ExploreFetchOption): Observable<any> {
-    const endpoint = 'discover/movie';
+    let endpoint = 'discover/movie';
+    if (fetchOptions.query) {
+      endpoint = 'search/movie';
+    }
     return this.gateWay.getApi(endpoint, fetchOptions);
   }
 
@@ -51,4 +55,5 @@ export interface ExploreFetchOption {
   include_adult?: boolean;
   include_video?: boolean;
   page?: number;
+  query?: string;
 }

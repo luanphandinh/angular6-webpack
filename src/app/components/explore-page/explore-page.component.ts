@@ -31,6 +31,7 @@ export class ExplorePageComponent implements OnInit {
     this.exploreService.fetchOptions.subscribe((options: ExploreFetchOption) => {
       this.fetchOptions = options;
       this.fetchOptions.page = 1;
+      this.items = [];
       this.fetchMovies();
     });
   }
@@ -53,7 +54,8 @@ export class ExplorePageComponent implements OnInit {
       items.push(new Go1ViewItem(MovieCardComponent, movie));
     });
     if (this.fetchOptions.page === 1) {
-      this.items = [...items];
+      this.items = null;
+      this.items = items;
     } else {
       this.items = [...this.items, ...items];
     }
