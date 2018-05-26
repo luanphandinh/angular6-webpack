@@ -22,10 +22,14 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.5",
+    "ngx-ellipsis": "^1.0.7",
+    "ngx-infinite-scroll": "^6.0.0",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "rxjs": "^6.1.0",
+    "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -48,6 +52,7 @@
     "karma-remap-coverage": "^0.1.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.0",
+    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "null-loader": "^0.1.1",

@@ -1,0 +1,26 @@
+<div class="go1-card" [ngClass]="{'hover': isHover}">
+  <div class="go1-card--inner"
+       (click)="onClickCard()">
+    <div class="go1-card--cover"
+      [ngStyle]="getBackgroundImageStyle()">
+    </div>
+
+    <div class="go1-card--content">
+      <div class="go1-card--content-overview" *ngIf="subtitle">
+        <div [innerHTML]="subtitle"></div>
+      </div>
+
+      <div class="go1-card--content-title" ellipsis *ngIf="title">
+        <div [innerHTML]="title"></div>
+      </div>
+
+      <div class="go1-card--content-author" *ngIf="overview">
+        <div [innerHTML]="overview" ellipsis></div>
+      </div>
+
+      <div class="go1-card--content-text" *ngIf="supportingText">
+        <span>{{ supportingText }}</span>
+      </div>
+    </div>
+  </div>
+</div>

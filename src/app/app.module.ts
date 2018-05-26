@@ -1,21 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { ExampleComponent } from './components/component-example/example.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import '../assets/css/styles.css';
-import '../assets/css/global_styles.scss';
+import { AppComponent } from './app.component';
+import { CommonComponentsModule } from './components/common/common-components.module';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { ExplorePageComponent } from './components/explore-page/explore-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     BrowserModule,
+    NgbModule.forRoot(),
+    CommonComponentsModule,
+    HttpClientModule,
+    RouterModule,
   ],
   declarations: [
     AppComponent,
-    ExampleComponent,
+    MovieCardComponent,
+    ExplorePageComponent,
   ],
   bootstrap: [
     AppComponent,
+  ],
+  entryComponents: [
+    MovieCardComponent,
+    ExplorePageComponent,
   ],
 })
 export class AppModule { }

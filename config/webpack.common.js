@@ -5,9 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'polyfills': helpers.root('./src/polyfills.ts'),
+    'vendor': helpers.root('./src/vendor.ts'),
+    'app': helpers.root('./src/main.ts')
   },
 
   resolve: {

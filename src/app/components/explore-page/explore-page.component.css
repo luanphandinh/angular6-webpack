@@ -1,0 +1,19 @@
+.total-text {
+  font-size: 20px;
+  padding: 10px 0px;
+}
+
+.loading {
+  height: 300px;
+}
+
+.add-all {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+}
