@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+@import '../../styles/styles.scss';
+
+.card-wrapper {
+  height: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.text-sm {
+  color: black;
+  padding: 0px 10px;
+}
+
+.avatar {
+  height: 175px;
+  background: center;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.character_name {
+  max-height: 25px;
+}

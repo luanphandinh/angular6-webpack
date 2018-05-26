@@ -17,6 +17,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { MovieDetailResolver } from './components/movie-detail/movie-detail-resolver';
+import { PeopleCardComponent } from './components/people-card/people-card.component';
+import { TopCastListComponet } from './components/movie-detail/caster/top-cast-list.componet';
 
 @NgModule({
   imports: [
@@ -33,6 +35,8 @@ import { MovieDetailResolver } from './components/movie-detail/movie-detail-reso
     ExplorePageComponent,
     MainPageComponent,
     MovieDetailComponent,
+    PeopleCardComponent,
+    TopCastListComponet,
   ],
   bootstrap: [
     AppComponent,

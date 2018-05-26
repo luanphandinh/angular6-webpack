@@ -37,11 +37,10 @@ export class Movie {
     const voteAverage: number = blob.vote_average;
     const title: string = DataFormatter.decodeHtml(blob.title);
     const popularity: string = blob.popularity;
-    const posterPath: string = 'https://image.tmdb.org/t/p/w300' + blob.poster_path;
+    const posterPath: string = DataFormatter.resizeImage(blob.poster_path, 300);
     const originalLanguage: string = blob.original_language;
     const originalTitle: string = blob.original_title;
-    const backdropPath: string =
-      'https://image.tmdb.org/t/p/w1400_and_h450_face' + blob.backdrop_path;
+    const backdropPath: string = DataFormatter.resizeImage(blob.backdrop_path, 1400, 450);
     const adult: boolean = blob.adult;
     const overview: string = DataFormatter.decodeHtml(blob.overview);
     const releaseDate: string = blob.release_date;
@@ -73,17 +72,12 @@ export class Movie {
   }
 
   getLogoStyle() {
-    return {
-      backgroundImage: this.posterPath ? `url('${this.posterPath}')` : 'none',
-    };
+    return DataFormatter.formatBackgroundStyle(this.posterPath);
   }
 
   getBackdropImageStyle() {
-    return {
-      backgroundImage: this.backdropPath ? `url('${this.backdropPath}')` : 'none',
-    };
+    return DataFormatter.formatBackgroundStyle(this.backdropPath);
   }
-
 
   static createCollectionFromResponse(blobs: any): Movie[] | null {
     if (!blobs) {

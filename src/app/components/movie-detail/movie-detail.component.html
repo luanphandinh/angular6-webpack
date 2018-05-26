@@ -7,7 +7,7 @@
       </a>
       <div class="row">
         <div class="col-md-4">
-          <div class="card">
+          <div class="card has-cursor">
             <div class="card-cover" [ngStyle]="movie.getLogoStyle()"></div>
           </div>
         </div>
@@ -27,8 +27,8 @@
   </div>
 </div>
 
-<div class="container">
-  <div *ngIf="movie.productions" class="production-list">
+<div class="container content-section mb-5">
+  <div *ngIf="movie.productions" class="production-list mb-4">
     <div class="production-overview"
          *ngFor="let production of movie.productions">
       <div class="production-image">
@@ -37,8 +37,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 movie-content">
-
+    <div class="col-md-10">
+      <div class="about">Top cast</div>
+      <top-cast-list [peoples]="peoples"></top-cast-list>
     </div>
   </div>
 </div>

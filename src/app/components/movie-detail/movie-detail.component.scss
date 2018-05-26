@@ -1,6 +1,13 @@
+@import '../../styles/styles';
+
 div, span {
   font-family: 'Open Sans';
   color: white;
+}
+
+.text-md {
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .text-grey {
@@ -218,12 +225,6 @@ div.custom_bg {
   border-bottom: 1px solid #cddbe2;
 }
 
-.text-md {
-  font-size: 16px;
-  font-weight: normal;
-}
-
-
 .genre {
   margin: 0px 10px;
   padding: 10px;
@@ -232,4 +233,9 @@ div.custom_bg {
   font-size: 14px;
   cursor: pointer;
   font-weight: bold;
+}
+
+
+.content-section div, .content-section span {
+  color: black;
 }
