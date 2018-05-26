@@ -1,16 +1,26 @@
-<div class="movie-header">
-  <div class="header-image" [ngStyle]="movie.getBackdropImageStyle()"></div>
-  <div class="container">
-    <a routerLink="" class="header-link">
-      <i class="fa fa-chevron-left" aria-hidden="true"></i>
-      <span>Back to search results</span>
-    </a>
-    <div class="header-title" [innerHTML]="movie.title"></div>
-    <div *ngIf="movie.productions" class="production-list">
-      <div class="production-overview"
-           *ngFor="let production of movie.productions">
-        <div class="production-image">
-          <img src="{{ production.logoPath }}" alt="" width="80" height="80">
+<div class="movie-header" [ngStyle]="movie.getBackdropImageStyle()">
+  <div class="custom_bg">
+    <div class="container">
+      <a routerLink="" class="header-link">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        <span>Back to search results</span>
+      </a>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-cover" [ngStyle]="movie.getLogoStyle()"></div>
+          </div>
+        </div>
+        <div class="col-md-8 movie-content">
+          <div class="header-title"> {{ movie.title }} <span class="text-md ml-2">Relase date : {{ movie.releaseDate }}</span></div>
+          <div *ngIf="movie.overview">
+            <div class="about">Overview</div>
+            <div [innerHTML]="movie.overview" class="text-md"></div>
+          </div>
+          <div *ngIf="movie.genres">
+            <div class="about">Genres</div>
+            <span class="genre text-grey" *ngFor="let genre of movie.genres">{{genre.name}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -18,20 +28,17 @@
 </div>
 
 <div class="container">
+  <div *ngIf="movie.productions" class="production-list">
+    <div class="production-overview"
+         *ngFor="let production of movie.productions">
+      <div class="production-image">
+        <img src="{{ production.logoPath }}" alt="" width="80" height="80">
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-10 movie-content">
-      <div class="card">
-        <div class="card-cover" [ngStyle]="movie.getLogoStyle()"></div>
-        <div class="card-content">
-          <div class="card-text">{{ movie.voteAverage }}</div>
-          <div class="card-action">
-          </div>
-        </div>
-      </div>
-      <div *ngIf="movie.overview">
-        <div class="about">About this movie</div>
-        <div [innerHTML]="movie.overview" class="text-md"></div>
-      </div>
+
     </div>
   </div>
 </div>

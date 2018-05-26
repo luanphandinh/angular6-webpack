@@ -1,6 +1,7 @@
 import { DataFormatter } from './data-formatter';
 import { Collection } from './collection';
 import { ProductionCompany } from './production-company';
+import { Genre } from './genre';
 
 export class Movie {
   constructor(
@@ -26,6 +27,7 @@ export class Movie {
   subtitle: string;
   collection: Collection | null;
   productions: ProductionCompany[] | null;
+  genres: Genre[] | null;
   isHover: boolean;
 
   static createFromResponse(blob: any) {
@@ -38,7 +40,8 @@ export class Movie {
     const posterPath: string = 'https://image.tmdb.org/t/p/w300' + blob.poster_path;
     const originalLanguage: string = blob.original_language;
     const originalTitle: string = blob.original_title;
-    const backdropPath: string = 'https://image.tmdb.org/t/p/w500' + blob.backdrop_path;
+    const backdropPath: string =
+      'https://image.tmdb.org/t/p/w1400_and_h450_face' + blob.backdrop_path;
     const adult: boolean = blob.adult;
     const overview: string = DataFormatter.decodeHtml(blob.overview);
     const releaseDate: string = blob.release_date;
@@ -65,12 +68,13 @@ export class Movie {
       ? Collection.createFromReponse(blob.belongs_to_collection)
       : null;
     movie.productions = ProductionCompany.createCollectionFromResponse(blob.production_companies);
+    movie.genres = Genre.createCollectionFromResponse(blob.genres);
     return movie;
   }
 
   getLogoStyle() {
     return {
-      backgroundImage: this.image ? `url('${this.image}')` : 'none',
+      backgroundImage: this.posterPath ? `url('${this.posterPath}')` : 'none',
     };
   }
 
