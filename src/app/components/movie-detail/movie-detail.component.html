@@ -40,6 +40,16 @@
     <div class="col-md-10">
       <div class="about">Top cast</div>
       <top-cast-list [peoples]="peoples"></top-cast-list>
+      <div *ngIf="reviews">
+        <div class="about">Reviews</div>
+        <reviews [reviews]="reviews"></reviews>
+      </div>
+    </div>
+    <div class="col-md-2" *ngIf="similarMovies">
+      <div class="about">Recommendations</div>
+      <div class="similar-card" *ngFor="let movie of similarMovies">
+        <movie-card [data]="movie"></movie-card>
+      </div>
     </div>
   </div>
 </div>

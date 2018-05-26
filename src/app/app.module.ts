@@ -18,7 +18,11 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { APP_BASE_HREF } from '@angular/common';
 import { MovieDetailResolver } from './components/movie-detail/movie-detail-resolver';
 import { PeopleCardComponent } from './components/people-card/people-card.component';
-import { TopCastListComponet } from './components/movie-detail/caster/top-cast-list.componet';
+import { TopCastListComponent } from './components/movie-detail/caster/top-cast-list.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewsComponent } from './components/movie-detail/reviews/reviews.component';
+
+import '../assets/css/global.css';
 
 @NgModule({
   imports: [
@@ -36,7 +40,9 @@ import { TopCastListComponet } from './components/movie-detail/caster/top-cast-l
     MainPageComponent,
     MovieDetailComponent,
     PeopleCardComponent,
-    TopCastListComponet,
+    TopCastListComponent,
+    ReviewComponent,
+    ReviewsComponent,
   ],
   bootstrap: [
     AppComponent,

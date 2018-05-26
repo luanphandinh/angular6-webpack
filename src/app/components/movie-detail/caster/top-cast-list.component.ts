@@ -12,7 +12,7 @@ import { People } from '../../../shared/people';
     </div>
   `,
 })
-export class TopCastListComponet implements OnInit {
+export class TopCastListComponent implements OnInit {
   @Input() peoples: People[];
   @Input() isHover: boolean;
 

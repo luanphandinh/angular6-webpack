@@ -79,12 +79,16 @@ export class Movie {
     return DataFormatter.formatBackgroundStyle(this.backdropPath);
   }
 
-  static createCollectionFromResponse(blobs: any): Movie[] | null {
+  static createCollectionFromResponse(blobs: any, limit?: number): Movie[] | null {
+    let limittedBlobs = blobs;
     if (!blobs) {
       return null;
     }
+    if (limit) {
+      limittedBlobs = blobs.slice(0, limit);
+    }
     const collections: Movie[] = [];
-    blobs.forEach((blob: any) => collections.push(Movie.createFromResponse(blob)));
+    limittedBlobs.forEach((blob: any) => collections.push(Movie.createFromResponse(blob)));
     return collections;
   }
 }

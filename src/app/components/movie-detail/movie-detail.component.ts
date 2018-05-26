@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { People } from '../../shared/people';
 import { Movie } from '../../shared/movie';
 import { MovieService } from '../../services/movie.service';
+import { Review } from '../../shared/review';
 
 @Component({
   selector: 'movie-detail',
@@ -11,9 +12,10 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./movie-detail.component.scss'],
 })
 export class MovieDetailComponent implements OnInit {
-
   movie: Movie;
   peoples: People[];
+  reviews: Review[];
+  similarMovies: Movie[];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +26,10 @@ export class MovieDetailComponent implements OnInit {
     this.movie = this.route.snapshot.data.movie;
     this.movieService.fetchPeople(this.movie.id)
       .then((data: People[]) => this.peoples = data);
+    this.movieService.fetchReview(this.movie.id)
+      .then((data: Review[]) => this.reviews = data);
+    this.movieService.fetchSimilarMovies(this.movie.id)
+      .then((data: Movie[]) => this.similarMovies = data);
   }
 
 }
