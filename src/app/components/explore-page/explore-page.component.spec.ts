@@ -1,8 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CommonComponentsModule } from 'app/components/common/common-components.module';
-import { GatewayService } from 'app/services/gateway.service';
-import { ExplorePageComponent } from 'app/components/explore-page/explore-page.component';
+
+import { CommonComponentsModule } from '../common/common-components.module';
+import { GatewayService } from '../../services/gateway.service';
+import { ExplorePageComponent } from './explore-page.component';
 
 describe('ExplorePageComponent', () => {
   let component: ExplorePageComponent;
