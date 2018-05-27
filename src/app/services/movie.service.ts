@@ -4,6 +4,7 @@ import { Movie } from '../shared/movie';
 import { GatewayService } from './gateway.service';
 import { People } from '../shared/people';
 import { Review } from '../shared/review';
+import { Video } from '../shared/video';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +46,13 @@ export class MovieService {
     return this.gateWay.getApi(endpoint)
       .toPromise()
       .then((data: any) => Review.createCollectionFromResponse(data.results, 3));
+  }
+
+  fetchVideos(id: number, type: string = 'movie'): Promise<Video[]> {
+    const endpoint = [type, id, 'videos'].join('/');
+    return this.gateWay.getApi(endpoint)
+      .toPromise()
+      .then((data: any) => Video.createCollectionFromResponse(data.results));
   }
 
 }

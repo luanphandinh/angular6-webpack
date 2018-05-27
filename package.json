@@ -37,6 +37,7 @@
   "devDependencies": {
     "@types/jasmine": "^2.8.7",
     "@types/node": "^10.0.4",
+    "@types/youtube": "0.0.32",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^5.0.0",
     "cross-env": "^5.1.4",
@@ -56,6 +57,7 @@
     "karma-webpack": "^3.0.0",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.0",
+    "ngx-youtube-player": "^0.1.0",
     "node-sass": "^4.9.0",
     "null-loader": "^0.1.1",
     "raw-loader": "^0.5.1",

@@ -19,6 +19,12 @@
   display: inline-block;
 }
 
+.search-bar {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   :host ::ng-deep .common-card-view--inner {
     height: 500px !important;

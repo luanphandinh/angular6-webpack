@@ -23,4 +23,13 @@ export class DataFormatter {
       backgroundImage: data ? `url('${data}')` : 'none',
     };
   }
+
+  static formateVideoSize(maxWidth: number = 1080, maxHeight: number = 720): any {
+    const width = window.innerWidth < maxWidth ? window.innerWidth : maxWidth;
+    const height = window.innerHeight < maxHeight ? window.innerHeight : maxHeight;
+    return {
+      width,
+      height,
+    };
+  }
 }

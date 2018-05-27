@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 import { AppComponent } from './app.component';
 import { CommonComponentsModule } from './components/common/common-components.module';
@@ -23,6 +24,7 @@ import { ReviewComponent } from './components/review/review.component';
 import { ReviewsComponent } from './components/movie-detail/reviews/reviews.component';
 import { SearchBarComponent } from './components/main-page/search-bar/search-bar.component';
 import { NavigationBarComponent } from './components/main-page/navigation-bar/navigation-bar.component';
+import { TrailerComponent } from './components/movie-detail/trailer/trailer.component';
 
 import '../assets/css/global.css';
 
@@ -33,6 +35,7 @@ import '../assets/css/global.css';
     CommonComponentsModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
+    YoutubePlayerModule,
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [
@@ -47,6 +50,7 @@ import '../assets/css/global.css';
     ReviewsComponent,
     SearchBarComponent,
     NavigationBarComponent,
+    TrailerComponent,
   ],
   bootstrap: [
     AppComponent,
@@ -63,6 +67,7 @@ import '../assets/css/global.css';
   entryComponents: [
     MovieCardComponent,
     ExplorePageComponent,
+    TrailerComponent,
   ],
 })
 export class AppModule { }

@@ -35,6 +35,7 @@ export class ExplorePageComponent implements OnInit {
       this.type = params.type;
       if (this.fetchOptions) {
         this.fetchOptions.page = 1;
+        delete this.fetchOptions.query;
         this.fetchMovies(true);
       }
     });
