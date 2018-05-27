@@ -21,7 +21,7 @@
 
 .search-bar {
   display: inline-block;
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
 
@@ -34,4 +34,16 @@
     -webkit-flex-basis: 336px !important;
     flex-basis: 336px !important;
   }
+}
+
+:host ::ng-deep .search-wrapper {
+  max-width: 100% !important;
+}
+
+:host ::ng-deep .search-wrapper form {
+  width: 90% !important;
+}
+
+:host ::ng-deep .search-wrapper button {
+  width: 10% !important;
 }

@@ -17,6 +17,8 @@
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
+  position: relative;
+  top: -10px;
 }
 
 .top-nav .actions {
@@ -30,6 +32,7 @@
   text-align: center;
 }
 
-.container {
+.search-bar-wrapper {
   text-align: center;
+  background-color: rgba(53, 70, 75, 0.9);
 }
