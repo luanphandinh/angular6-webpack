@@ -25,6 +25,7 @@ import { ReviewsComponent } from './components/movie-detail/reviews/reviews.comp
 import { SearchBarComponent } from './components/main-page/search-bar/search-bar.component';
 import { NavigationBarComponent } from './components/main-page/navigation-bar/navigation-bar.component';
 import { TrailerComponent } from './components/movie-detail/trailer/trailer.component';
+import { SortComponent } from './components/explore-page/sort/sort.component';
 
 import '../assets/css/global.css';
 
@@ -51,6 +52,7 @@ import '../assets/css/global.css';
     SearchBarComponent,
     NavigationBarComponent,
     TrailerComponent,
+    SortComponent,
   ],
   bootstrap: [
     AppComponent,

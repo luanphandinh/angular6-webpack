@@ -2,6 +2,9 @@
   <search-bar class="search-bar mb-4"></search-bar>
   <div class="pb-3" *ngIf="total">
     <span class="total-text mr-4">{{ selectedCount ? selectedCount + ' of ' + total + ' Movies selected' : total + ' Movies' }}</span>
+    <div class="sort-wrapper">
+      <sort></sort>
+    </div>
   </div>
   <go1-grid
     [items]="items"

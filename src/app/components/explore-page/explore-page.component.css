@@ -47,3 +47,11 @@
 :host ::ng-deep .search-wrapper button.btn-primary {
   width: 10% !important;
 }
+
+.sort-wrapper {
+  width: 100%;
+  text-align: right;
+  position: relative;
+  top: -30px;
+  right: -13px;
+}
