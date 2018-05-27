@@ -44,6 +44,6 @@
   width: 90% !important;
 }
 
-:host ::ng-deep .search-wrapper button {
+:host ::ng-deep .search-wrapper button.btn-primary {
   width: 10% !important;
 }

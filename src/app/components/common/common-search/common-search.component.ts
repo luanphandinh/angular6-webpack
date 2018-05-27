@@ -20,12 +20,13 @@ export class CommonSearchComponent implements OnInit {
   @Output() selectItem = new EventEmitter<any>();
 
   searchGroup: FormGroup;
+  searchText: string;
 
   formatter = (result: any) => result.text;
 
   searching = (text$: Observable<any>) =>
     text$.pipe(
-      debounceTime(this.delayOnType || 300),
+      debounceTime((this.delayOnType || 300) + 100),
       distinctUntilChanged(),
       map((term: any) => term.length < 2
           ? []
@@ -39,14 +40,18 @@ export class CommonSearchComponent implements OnInit {
     const searchControl = new FormControl();
     searchControl
       .valueChanges
-      .subscribe((value: string) => this.textChange.emit(value));
+      .pipe(debounceTime(this.delayOnType || 300))
+      .subscribe((value: string) => {
+        this.textChange.emit(value);
+      });
     this.searchGroup = new FormGroup({
       searchControl,
     });
   }
 
-  selectedItem(item: any) {
-    this.selectItem.emit(item);
+  selectedItem($event: any) {
+    $event.preventDefault();
+    this.selectItem.emit($event.item);
   }
 
   onSubmit(form: any) {

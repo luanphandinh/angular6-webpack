@@ -67,8 +67,8 @@ export class SearchBarComponent implements OnInit {
     this.router.navigateByUrl(['app', 'explore', this.type].join('/'));
   }
 
-  selectSearchItem(data: any) {
-    this.router.navigateByUrl(`app/detail/${data.item.type}/${data.item.id}`);
+  selectSearchItem(item: any) {
+    this.router.navigateByUrl(`app/detail/${item.type}/${item.id}`);
   }
 
 
