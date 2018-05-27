@@ -54,11 +54,11 @@ export class SearchBarComponent implements OnInit {
       delete this.fetchOptions.query;
     }
     this.exploreService.extendOptions(this.fetchOptions, true);
-    this.router.navigateByUrl('app/explore');
+    this.router.navigateByUrl('app/explore/movie');
   }
 
   selectSearchItem(data: any) {
-    this.router.navigateByUrl(`app/movie/${data.item.id}`);
+    this.router.navigateByUrl(`app/detail/movie/${data.item.id}`);
   }
 
 

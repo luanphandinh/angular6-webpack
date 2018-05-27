@@ -12,7 +12,7 @@ import { ExplorePageComponent } from './components/explore-page/explore-page.com
 import { MovieService } from './services/movie.service';
 import { ExploreService } from './services/explore.service';
 
-import { appRoutes } from '../app.routes';
+import { appRoutes } from './app.routes';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { APP_BASE_HREF } from '@angular/common';
@@ -22,6 +22,7 @@ import { TopCastListComponent } from './components/movie-detail/caster/top-cast-
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewsComponent } from './components/movie-detail/reviews/reviews.component';
 import { SearchBarComponent } from './components/main-page/search-bar/search-bar.component';
+import { NavigationBarComponent } from './components/main-page/navigation-bar/navigation-bar.component';
 
 import '../assets/css/global.css';
 
@@ -45,6 +46,7 @@ import '../assets/css/global.css';
     ReviewComponent,
     ReviewsComponent,
     SearchBarComponent,
+    NavigationBarComponent,
   ],
   bootstrap: [
     AppComponent,

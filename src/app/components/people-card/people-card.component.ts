@@ -9,8 +9,8 @@ import { People } from '../../shared/people';
   template: `
     <div class="card-wrapper has-border">
       <div class="avatar has-cursor" [ngStyle]="people.getBackgroundStyle()"></div>
-      <div class="name text-sm">{{ people.name }}</div>
-      <div class="character_name text-sm" ellipsis>{{ people.character }}</div>  
+      <div class="name text-sm text-bold">{{ people.name }}</div>
+      <div class="character-name text-sm" ellipsis>{{ people.character }}</div>  
     </div>
   `,
 })

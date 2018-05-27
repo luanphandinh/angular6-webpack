@@ -13,7 +13,8 @@ export class MovieDetailResolver implements Resolve<Movie> {
 
   resolve(route: ActivatedRouteSnapshot) {
     const movieId = Number(route.paramMap.get('id'));
-    return this.movieService.fetchMovie(movieId)
+    const type = route.paramMap.get('type');
+    return this.movieService.fetchMovie(movieId, type)
       .then((movie: Movie) => movie);
   }
 }

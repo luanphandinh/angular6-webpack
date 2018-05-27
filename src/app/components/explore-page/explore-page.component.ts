@@ -2,6 +2,7 @@ import { Component, OnInit, Type } from '@angular/core';
 import { ExploreFetchOption, ExploreService } from '../../services/explore.service';
 import { Movie } from '../../shared/movie';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { ActivatedRoute } from '@angular/router';
 
 class Go1ViewItem {
   constructor(
@@ -21,13 +22,23 @@ export class ExplorePageComponent implements OnInit {
   selectedCount: number;
   loading: boolean;
   fetchOptions: ExploreFetchOption;
+  type: string;
   constructor(
+    private route: ActivatedRoute,
     private exploreService: ExploreService,
   ) {
   }
 
   ngOnInit() {
     this.items = [];
+    this.route.params.subscribe((params : any) => {
+      this.type = params.type;
+      if (this.fetchOptions) {
+        this.fetchOptions.page = 1;
+        this.fetchMovies(true);
+      }
+    });
+
     this.exploreService.fetchOptions.subscribe((options: ExploreFetchOption) => {
       this.fetchOptions = options;
       this.fetchOptions.page = 1;
@@ -36,24 +47,24 @@ export class ExplorePageComponent implements OnInit {
     });
   }
 
-  fetchMovies() {
+  fetchMovies(replace: boolean = false) {
     if (this.loading) {
       return;
     }
     this.loading = true;
     this.exploreService
-      .fetchMovies(this.fetchOptions)
-      .subscribe(data => this.onFetchDone(data));
+      .fetchMovies(this.fetchOptions, this.type)
+      .subscribe(data => this.onFetchDone(data, replace));
   }
 
-  onFetchDone(data: any) {
+  onFetchDone(data: any, replace: boolean = false) {
     this.total = data.total_results;
     const items: Go1ViewItem[] = [];
     data.results.forEach((result: any) => {
-      const movie = Movie.createFromResponse(result);
+      const movie = Movie.createFromResponse(result, this.type);
       items.push(new Go1ViewItem(MovieCardComponent, movie));
     });
-    if (this.fetchOptions.page === 1) {
+    if (this.fetchOptions.page === 1 || replace) {
       this.items = null;
       this.items = items;
     } else {

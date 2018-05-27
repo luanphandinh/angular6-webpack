@@ -4,6 +4,7 @@
 .card-wrapper {
   height: 250px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
 .text-sm {
@@ -16,4 +17,11 @@
   background: center;
   margin-bottom: 10px;
 }
+
+.character-name {
+  max-height: 36px;
+  overflow: hidden;
+}
+
+
 

@@ -1,3 +1,5 @@
+@import "variables";
+
 .text-md {
   font-size: 16px;
   font-weight: normal;
@@ -27,4 +29,8 @@
 
 .round {
   border-radius: 50%;
+}
+
+.dark-bg {
+  background-color: #35464B !important;
 }

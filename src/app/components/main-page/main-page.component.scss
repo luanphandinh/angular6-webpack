@@ -1,0 +1,30 @@
+@import "../../styles/styles";
+
+.top-nav-wrapper {
+  padding-top: 30px;
+  background-color: #35464B;
+  box-shadow: 0px 0px 4px 1px rgba(100,100,100,0.1);
+}
+
+.top-nav {
+  display: table;
+}
+
+.top-nav .logo {
+  width: 100px;
+  height: 100px;
+  display: table-cell;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.top-nav .actions {
+  display: table-cell;
+  padding-left: 40px;
+}
+
+.search-bar {
+  display: inline-block;
+  width: 80%;
+}

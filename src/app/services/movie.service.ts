@@ -15,29 +15,33 @@ export class MovieService {
   ) {
   }
 
-  fetchMovie(id: number): Promise<Movie> {
-    const endpoint = ['movie', id].join('/');
+  fetchMovie(id: number, type: string): Promise<Movie> {
+    const endpoint = [type, id].join('/');
     return this.gateWay.getApi(endpoint)
       .toPromise()
-      .then((data: any) => Movie.createMovieDetailFromResponse(data));
+      .then((data: any) => Movie.createMovieDetailFromResponse(data, type));
   }
 
-  fetchSimilarMovies(id: number): Promise<Movie[]> {
-    const endpoint = ['movie', id, 'recommendations'].join('/');
+  fetchSimilarMovies(id: number, type: string = 'movie'): Promise<Movie[]> {
+    const endpoint = [type, id, 'recommendations'].join('/');
     return this.gateWay.getApi(endpoint)
       .toPromise()
-      .then((data: any) => Movie.createCollectionFromResponse(data.results, 3));
+      .then((data: any) => {
+        const movies = Movie.createCollectionFromResponse(data.results, 3);
+        movies.forEach(movie => movie.type = type);
+        return movies;
+      });
   }
 
-  fetchPeople(id: number): Promise<People[]> {
-    const endpoint = ['movie', id, 'credits'].join('/');
+  fetchPeople(id: number, type: string = 'movie'): Promise<People[]> {
+    const endpoint = [type, id, 'credits'].join('/');
     return this.gateWay.getApi(endpoint)
       .toPromise()
       .then((data: any) => People.createCollectionFromResponse(data.cast, 6));
   }
 
-  fetchReview(id: number): Promise<Review[]> {
-    const endpoint = ['movie', id, 'reviews'].join('/');
+  fetchReview(id: number, type: string = 'movie'): Promise<Review[]> {
+    const endpoint = [type, id, 'reviews'].join('/');
     return this.gateWay.getApi(endpoint)
       .toPromise()
       .then((data: any) => Review.createCollectionFromResponse(data.results, 3));

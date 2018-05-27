@@ -1,0 +1,17 @@
+@import "../../../styles/styles";
+
+.navbar {
+  padding: 0px;
+  color: white;
+}
+
+a {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+a.active {
+  color: $primaryColor;
+  border-bottom: 4px solid $primaryColor;
+}

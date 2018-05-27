@@ -39,10 +39,10 @@ export class ExploreService {
     this.fetchOptionsSubject.next(this.fetchOptions$);
   }
 
-  fetchMovies(fetchOptions: ExploreFetchOption): Observable<any> {
-    let endpoint = 'discover/movie';
+  fetchMovies(fetchOptions: ExploreFetchOption, type: string = 'movie'): Observable<any> {
+    let endpoint = ['discover' , type].join('/');
     if (fetchOptions.query) {
-      endpoint = 'search/movie';
+      endpoint = ['search', type].join('/');
     }
     return this.gateWay.getApi(endpoint, fetchOptions);
   }

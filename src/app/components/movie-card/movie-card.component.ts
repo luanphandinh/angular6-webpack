@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
       [image]="data.image"
       [overview]="data.overview"
       [title]="data.title"
-      [subtitle]="data.subtitle"
+      [subtitle]="'★  ' + data.subtitle"
       [isHover]="data.isHover"
       [cardObject]="data"
       (clickCard)="onClickCard($event)">
@@ -29,6 +29,6 @@ export class MovieCardComponent implements OnInit {
   }
 
   onClickCard($event: any) {
-    this.router.navigateByUrl(`app/movie/${this.data.id}`);
+    this.router.navigateByUrl(`app/detail/${this.data.type}/${this.data.id}`);
   }
 }

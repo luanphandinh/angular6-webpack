@@ -23,13 +23,15 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.movie = this.route.snapshot.data.movie;
-    this.movieService.fetchPeople(this.movie.id)
-      .then((data: People[]) => this.peoples = data);
-    this.movieService.fetchReview(this.movie.id)
-      .then((data: Review[]) => this.reviews = data);
-    this.movieService.fetchSimilarMovies(this.movie.id)
-      .then((data: Movie[]) => this.similarMovies = data);
+    this.route.params.subscribe((params: any) => {
+      this.movie = this.route.snapshot.data.movie;
+      this.movieService.fetchPeople(this.movie.id, this.movie.type)
+        .then((data: People[]) => this.peoples = data);
+      this.movieService.fetchReview(this.movie.id, this.movie.type)
+        .then((data: Review[]) => this.reviews = data);
+      this.movieService.fetchSimilarMovies(this.movie.id, this.movie.type)
+        .then((data: Movie[]) => this.similarMovies = data);
+    });
   }
 
 }
