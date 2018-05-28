@@ -32,10 +32,9 @@ export class ExploreService {
   extendOptions(options: ExploreFetchOption, replace: boolean = false) {
     if (replace) {
       this.fetchOptions$ = { ...this.defaultFetchOption, ...options };
-      this.fetchOptionsSubject.next(this.fetchOptions$);
-      return;
+    } else {
+      this.fetchOptions$ = { ...this.fetchOptions$, ...options };
     }
-    this.fetchOptions$ = { ...this.fetchOptions$, ...options };
     this.fetchOptionsSubject.next(this.fetchOptions$);
   }
 

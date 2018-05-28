@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExploreFetchOption, ExploreService } from '../../../services/explore.service';
+import { map } from 'rxjs/internal/operators';
 
 
 @Component({
@@ -37,9 +38,11 @@ export class SearchBarComponent implements OnInit {
   onSearchTextChanged(searchQuery: string) {
     this.fetchOptions.query = searchQuery;
     this.fetchOptions.page = 1;
-    this.exploreService
+    return this.exploreService
       .fetchMovies(this.fetchOptions)
-      .subscribe(data => this.onFetchDone(data));
+      .pipe(
+        map((data: any) => this.onFetchDone(data)),
+      );
   }
 
   onFetchDone(data: any) {
@@ -52,8 +55,9 @@ export class SearchBarComponent implements OnInit {
       };
       items.push(item);
     });
-    this.searchItems = items ? [...items] : [];
+    this.searchItems = items;
     this.loading = false;
+    return this.searchItems;
   }
 
   doSearch(searchQuery: string) {

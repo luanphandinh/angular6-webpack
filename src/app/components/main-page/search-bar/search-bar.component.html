@@ -1,9 +1,9 @@
 <common-search
   class="go1-search"
-  [delayOnType]="1000"
+  [delayOnType]="300"
   [searchItems]="searchItems"
   [helpText]="'Search movies...'"
-  (textChange)="onSearchTextChanged($event)"
+  [textChange]="onSearchTextChanged.bind(this)"
   (search)="doSearch($event)"
   (selectItem)="selectSearchItem($event)">
 </common-search>
