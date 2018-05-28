@@ -34,6 +34,9 @@ export class GatewayService {
         (p, keyValue) => {
           let key = keyValue;
           const data = fetchOptions[key];
+          if (!data) {
+            return p;
+          }
           if (Array.isArray(data)) {
             key = key + '[]';
           }

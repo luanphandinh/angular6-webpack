@@ -1,14 +1,15 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../../services/movie.service';
 
 import { People } from '../../shared/people';
 import { Movie } from '../../shared/movie';
-import { MovieService } from '../../services/movie.service';
 import { Review } from '../../shared/review';
 import { Video } from '../../shared/video';
 import { TrailerComponent } from './trailer/trailer.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataFormatter } from '../../shared/data-formatter';
+import { ExploreService } from '../../services/explore.service';
 
 @Component({
   selector: 'movie-detail',
@@ -34,6 +35,7 @@ export class MovieDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private movieService: MovieService,
     private modalService: NgbModal,
+    private exploreService: ExploreService,
   ) { }
 
   ngOnInit() {
@@ -64,5 +66,8 @@ export class MovieDetailComponent implements OnInit {
       });
   }
 
+  backToExplore() {
+    this.exploreService.goToExplore();
+  }
 
 }

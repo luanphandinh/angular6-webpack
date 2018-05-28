@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ExploreFetchOption, ExploreService } from '../../../services/explore.service';
 import { map } from 'rxjs/internal/operators';
 
@@ -17,20 +17,15 @@ export class SearchBarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private exploreService: ExploreService,
   ) { }
 
   ngOnInit() {
     this.searchItems = [];
     this.type = 'movie';
-    this.activatedRoute.params.subscribe((params: any) => {
-      this.type = params.type || 'movie';
-      if (this.fetchOptions) {
-        this.fetchOptions.page = 1;
-      }
-    });
-    this.exploreService.fetchOptions.subscribe((options: ExploreFetchOption) => {
+
+    this.exploreService.exploreType$.subscribe((type: string) => this.type = type);
+    this.exploreService.fetchOptions$.subscribe((options: ExploreFetchOption) => {
       this.fetchOptions = options;
     });
   }
@@ -39,7 +34,7 @@ export class SearchBarComponent implements OnInit {
     this.fetchOptions.query = searchQuery;
     this.fetchOptions.page = 1;
     return this.exploreService
-      .fetchMovies(this.fetchOptions)
+      .fetchMovies(this.fetchOptions, this.type)
       .pipe(
         map((data: any) => this.onFetchDone(data)),
       );
@@ -72,7 +67,9 @@ export class SearchBarComponent implements OnInit {
   }
 
   selectSearchItem(item: any) {
-    this.router.navigateByUrl(`app/detail/${item.type}/${item.id}`);
+    delete this.fetchOptions.query;
+    this.exploreService.extendOptions(this.fetchOptions, true);
+    this.router.navigateByUrl(`app/detail/${this.type}/${item.id}`);
   }
 
 

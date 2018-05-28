@@ -33,6 +33,7 @@ export class ExplorePageComponent implements OnInit {
     this.items = [];
     this.route.params.subscribe((params : any) => {
       this.type = params.type;
+      this.exploreService.setExploreType(this.type);
       if (this.fetchOptions) {
         this.fetchOptions.page = 1;
         delete this.fetchOptions.query;
@@ -40,7 +41,7 @@ export class ExplorePageComponent implements OnInit {
       }
     });
 
-    this.exploreService.fetchOptions.subscribe((options: ExploreFetchOption) => {
+    this.exploreService.fetchOptions$.subscribe((options: ExploreFetchOption) => {
       this.fetchOptions = options;
       this.fetchOptions.page = 1;
       this.items = [];

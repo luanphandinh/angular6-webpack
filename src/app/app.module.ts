@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CommonComponentsModule } from './components/common/common-components.module';
@@ -26,8 +28,10 @@ import { SearchBarComponent } from './components/main-page/search-bar/search-bar
 import { NavigationBarComponent } from './components/main-page/navigation-bar/navigation-bar.component';
 import { TrailerComponent } from './components/movie-detail/trailer/trailer.component';
 import { SortComponent } from './components/explore-page/sort/sort.component';
+import { CommonFilterComponent } from './components/explore-page/filter/filter.component';
+import { ExploreFiltersComponent } from './components/explore-page/filter/explore-filters.component';
 
-import '../assets/css/global.css';
+import '../assets/css/global.scss';
 
 @NgModule({
   imports: [
@@ -37,6 +41,8 @@ import '../assets/css/global.css';
     HttpClientModule,
     LoadingBarHttpClientModule,
     YoutubePlayerModule,
+    NgSelectModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [
@@ -53,6 +59,8 @@ import '../assets/css/global.css';
     NavigationBarComponent,
     TrailerComponent,
     SortComponent,
+    CommonFilterComponent,
+    ExploreFiltersComponent,
   ],
   bootstrap: [
     AppComponent,

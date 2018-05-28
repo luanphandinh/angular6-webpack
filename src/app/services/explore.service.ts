@@ -3,15 +3,21 @@ import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/index';
 
 import { GatewayService } from './gateway.service';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/internal/operators';
+import { FilterOption } from '../components/explore-page/filter/filter.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExploreService {
-  fetchOptions: Observable<ExploreFetchOption>;
+  fetchOptions$: Observable<ExploreFetchOption>;
+  exploreType$: Observable<string>;
 
   private fetchOptionsSubject: BehaviorSubject<ExploreFetchOption>;
-  private fetchOptions$: ExploreFetchOption;
+  private exploreTypeSubject: BehaviorSubject<string>;
+  private fetchOptions: ExploreFetchOption;
+  private exploreType: string;
   defaultFetchOption = {
     language: 'en-US',
     sort_by: 'popularity.desc',
@@ -21,21 +27,35 @@ export class ExploreService {
   };
 
   constructor(
-    private  gateWay: GatewayService,
+    private gateWay: GatewayService,
+    private route: Router,
   ) {
-    this.fetchOptions$ = { ...this.defaultFetchOption };
+    this.fetchOptions = { ...this.defaultFetchOption };
+    this.exploreType = 'movie';
 
-    this.fetchOptionsSubject = new BehaviorSubject<ExploreFetchOption>(this.fetchOptions$);
-    this.fetchOptions = this.fetchOptionsSubject.asObservable();
+    this.fetchOptionsSubject = new BehaviorSubject<ExploreFetchOption>(this.fetchOptions);
+    this.exploreTypeSubject = new BehaviorSubject<string>(this.exploreType);
+    this.fetchOptions$ = this.fetchOptionsSubject.asObservable();
+    this.exploreType$ = this.exploreTypeSubject.asObservable();
   }
 
   extendOptions(options: ExploreFetchOption, replace: boolean = false) {
     if (replace) {
-      this.fetchOptions$ = { ...this.defaultFetchOption, ...options };
+      this.fetchOptions = { ...this.defaultFetchOption, ...options };
     } else {
-      this.fetchOptions$ = { ...this.fetchOptions$, ...options };
+      this.fetchOptions = { ...this.fetchOptions, ...options };
     }
-    this.fetchOptionsSubject.next(this.fetchOptions$);
+    this.fetchOptionsSubject.next(this.fetchOptions);
+  }
+
+  deleteOptions(key: string) {
+    delete this.fetchOptions[key];
+    this.fetchOptionsSubject.next({ ...this.fetchOptions });
+  }
+
+  setExploreType(type: string) {
+    this.exploreType = type;
+    this.exploreTypeSubject.next(type);
   }
 
   fetchMovies(fetchOptions: ExploreFetchOption, type: string = 'movie'): Observable<any> {
@@ -44,6 +64,34 @@ export class ExploreService {
       endpoint = ['search', type].join('/');
     }
     return this.gateWay.getApi(endpoint, fetchOptions);
+  }
+
+  fetchGenreOptions(type: string = 'movie'): Observable<FilterOption[]> {
+    const endpoint = ['genre' , type, 'list'].join('/');
+    return this.gateWay.getApi(endpoint)
+      .pipe(
+        map(response =>
+          response.genres.map((genre: any) =>
+            ({ key: genre.id, value: genre.name }),
+          ),
+        ),
+      );
+  }
+
+  fetchCountryOptions(): Observable<FilterOption[]> {
+    const endpoint = ['configuration', 'languages'].join('/');
+    return this.gateWay.getApi(endpoint)
+      .pipe(
+        map(response =>
+          response.map((country: any) =>
+            ({ key: country.iso_639_1, value: country.english_name }),
+          ),
+        ),
+      );
+  }
+
+  goToExplore() {
+    this.route.navigateByUrl(`app/explore/${this.exploreType}`);
   }
 
 }
@@ -55,4 +103,6 @@ export interface ExploreFetchOption {
   include_video?: boolean;
   page?: number;
   query?: string;
+  with_genres?: number;
+  with_original_language?: string;
 }
