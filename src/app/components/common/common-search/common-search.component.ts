@@ -1,4 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component, Input, OnInit, Output, EventEmitter,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
@@ -15,6 +17,7 @@ export class CommonSearchComponent implements OnInit {
   @Input() disableSearch: boolean;
   @Input() helpText: string;
   @Input() textChange: Function;
+  @Input() searchText: string;
 
   @Output() search = new EventEmitter<string>();
   @Output() selectItem = new EventEmitter<any>();
@@ -32,14 +35,14 @@ export class CommonSearchComponent implements OnInit {
   )
 
   ngOnInit() {
-    const searchControl = new FormControl();
     this.searchGroup = new FormGroup({
-      searchControl,
+      searchControl: new FormControl(),
     });
   }
 
   selectedItem($event: any) {
     $event.preventDefault();
+    this.searchText = null;
     this.selectItem.emit($event.item);
   }
 

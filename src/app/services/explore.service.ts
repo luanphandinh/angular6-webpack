@@ -45,12 +45,19 @@ export class ExploreService {
     } else {
       this.fetchOptions = { ...this.fetchOptions, ...options };
     }
+    this.fetchOptions.page = 1;
     this.fetchOptionsSubject.next(this.fetchOptions);
   }
 
-  deleteOptions(key: string) {
-    delete this.fetchOptions[key];
+  deleteOption(key: string) {
+    this.fetchOptions[key] = null;
     this.fetchOptionsSubject.next({ ...this.fetchOptions });
+  }
+
+  deleteOptions(keys: string[] | string) {
+    if (!keys) return;
+    const toDeleteKeys: any = keys.length ? keys : [keys];
+    toDeleteKeys.forEach((value: any) => this.deleteOption(value));
   }
 
   setExploreType(type: string) {

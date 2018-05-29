@@ -14,6 +14,7 @@ export class SearchBarComponent implements OnInit {
   loading: boolean;
   fetchOptions: ExploreFetchOption;
   type: string;
+  searchText: string;
 
   constructor(
     private router: Router,
@@ -57,17 +58,15 @@ export class SearchBarComponent implements OnInit {
 
   doSearch(searchQuery: string) {
     this.fetchOptions.page = 1;
-    if (searchQuery && searchQuery.trim().length) {
-      this.fetchOptions.query = searchQuery;
-    } else {
-      delete this.fetchOptions.query;
-    }
+    this.fetchOptions.query = searchQuery;
     this.exploreService.extendOptions(this.fetchOptions, true);
     this.router.navigateByUrl(['app', 'explore', this.type].join('/'));
   }
 
   selectSearchItem(item: any) {
-    delete this.fetchOptions.query;
+    this.fetchOptions.query = null;
+    this.fetchOptions.with_genres = null;
+    this.fetchOptions.with_original_language = null;
     this.exploreService.extendOptions(this.fetchOptions, true);
     this.router.navigateByUrl(`app/detail/${this.type}/${item.id}`);
   }

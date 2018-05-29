@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
   selector: 'common-filter',
   template: `
     <div class="filter-wrapper">
-      <span>{{label}}</span>
+      <span class="filter-label">{{label}}</span>
       <ng-select 
         [items]="options | async" 
         bindLabel="value"
-        bindValue="key" 
+        bindValue="key"
         [(ngModel)]="selectedOptionKey" 
         (change)="onSelectionChange()" 
         (clear)="onClear()">
@@ -20,6 +20,7 @@ import { Observable } from 'rxjs';
 export class CommonFilterComponent implements OnInit {
   @Input() label: string;
   @Input() key: string;
+  @Input() defaultValue: string;
   @Input() options: Observable<FilterOption[]>;
   selectedOptionKey?: string;
 
@@ -29,6 +30,7 @@ export class CommonFilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.selectedOptionKey = this.defaultValue || null;
   }
 
   onSelectionChange() {

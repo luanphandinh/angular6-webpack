@@ -4,6 +4,7 @@
   [searchItems]="searchItems"
   [helpText]="'Search movies...'"
   [textChange]="onSearchTextChanged.bind(this)"
+  [searchText]="searchText"
   (search)="doSearch($event)"
   (selectItem)="selectSearchItem($event)">
 </common-search>

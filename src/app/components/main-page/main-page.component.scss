@@ -31,21 +31,13 @@
   width: 100%;
   text-align: center;
 }
-//
-//:host ::ng-deep .search-wrapper {
-//  max-width: 100% !important;
-//}
-//
-//:host ::ng-deep .search-wrapper form {
-//  width: 90% !important;
-//}
-//
-//:host ::ng-deep .search-wrapper button.btn-primary {
-//  width: 10% !important;
-//}
 
 
 .search-bar-wrapper {
   text-align: center;
   background-color: rgba(53, 70, 75, 0.9);
+}
+
+.explore-filter-wrapper {
+  box-shadow: 0px 1px 1px 0px rgba(30,30,30,0.2);
 }

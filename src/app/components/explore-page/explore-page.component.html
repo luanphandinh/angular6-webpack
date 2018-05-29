@@ -1,7 +1,9 @@
 <div class="container mt-4">
   <!--<search-bar class="search-bar mb-4"></search-bar>-->
-  <explore-filter></explore-filter>
-  <div class="pb-3" *ngIf="total">
+  <div class="explore-filter-wrapper">
+    <explore-filter></explore-filter>
+  </div>
+  <div *ngIf="total">
     <span class="total-text mr-4">{{ selectedCount ? selectedCount + ' of ' + total + ' Movies selected' : total + ' Movies' }}</span>
     <div class="sort-wrapper">
       <sort></sort>

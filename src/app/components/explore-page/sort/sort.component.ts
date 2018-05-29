@@ -17,7 +17,7 @@ import { ExploreFetchOption, ExploreService } from '../../../services/explore.se
         </div>
       </div>
       <div class="btn-group" ngbDropdown role="group" aria-label="">
-        <button class="btn btn-outline-success" ngbDropdownToggle>{{ selectedDirection.value }}</button>
+        <button class="btn btn-outline-primary" ngbDropdownToggle>{{ selectedDirection.value }}</button>
         <div class="dropdown-menu" ngbDropdownMenu>
           <button 
             class="dropdown-item" 

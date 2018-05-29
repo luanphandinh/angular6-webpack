@@ -50,9 +50,6 @@ export class ExplorePageComponent implements OnInit {
   }
 
   fetchMovies(replace: boolean = false) {
-    if (this.loading) {
-      return;
-    }
     this.loading = true;
     this.exploreService
       .fetchMovies(this.fetchOptions, this.type)
