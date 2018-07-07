@@ -15,7 +15,7 @@ module.exports = {
     modules: [
       helpers.root('./node_modules'),
       helpers.root('src'),
-    ]
+    ],
   },
 
   module: {
