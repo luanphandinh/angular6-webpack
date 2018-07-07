@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"],
+      "app/*": ["app/*"],
+    },
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
