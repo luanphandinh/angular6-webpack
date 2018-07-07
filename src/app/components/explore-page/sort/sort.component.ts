@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExploreFetchOption, ExploreService } from '../../../services/explore.service';
+import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
 
 @Component({
   selector: 'sort',

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Movie } from '../shared/movie';
+import { Movie } from 'app/shared/movie';
+import { People } from 'app/shared/people';
+import { Review } from 'app/shared/review';
+import { Video } from 'app/shared/video';
+
 import { GatewayService } from './gateway.service';
-import { People } from '../shared/people';
-import { Review } from '../shared/review';
-import { Video } from '../shared/video';
 
 @Injectable({
   providedIn: 'root',

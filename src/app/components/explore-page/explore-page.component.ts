@@ -1,8 +1,9 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { ExploreFetchOption, ExploreService } from '../../services/explore.service';
-import { Movie } from '../../shared/movie';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
+
 import { ActivatedRoute } from '@angular/router';
+import { MovieCardComponent } from 'app/components/movie-card/movie-card.component';
+import { Movie } from 'app/shared/movie';
 
 class Go1ViewItem {
   constructor(

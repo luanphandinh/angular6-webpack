@@ -8,28 +8,28 @@ import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { CommonComponentsModule } from './components/common/common-components.module';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
-import { ExplorePageComponent } from './components/explore-page/explore-page.component';
-import { MovieService } from './services/movie.service';
-import { ExploreService } from './services/explore.service';
+import { AppComponent } from 'app/app.component';
+import { CommonComponentsModule } from 'app/components/common/common-components.module';
+import { MovieCardComponent } from 'app/components/movie-card/movie-card.component';
+import { ExplorePageComponent } from 'app/components/explore-page/explore-page.component';
+import { MovieService } from 'app/services/movie.service';
+import { ExploreService } from 'app/services/explore.service';
 
-import { appRoutes } from './app.routes';
-import { MainPageComponent } from './components/main-page/main-page.component';
-import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { appRoutes } from 'app/app.routes';
+import { MainPageComponent } from 'app/components/main-page/main-page.component';
+import { MovieDetailComponent } from 'app/components/movie-detail/movie-detail.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { MovieDetailResolver } from './components/movie-detail/movie-detail-resolver';
-import { PeopleCardComponent } from './components/people-card/people-card.component';
-import { TopCastListComponent } from './components/movie-detail/caster/top-cast-list.component';
-import { ReviewComponent } from './components/review/review.component';
-import { ReviewsComponent } from './components/movie-detail/reviews/reviews.component';
-import { SearchBarComponent } from './components/main-page/search-bar/search-bar.component';
-import { NavigationBarComponent } from './components/main-page/navigation-bar/navigation-bar.component';
-import { TrailerComponent } from './components/movie-detail/trailer/trailer.component';
-import { SortComponent } from './components/explore-page/sort/sort.component';
-import { CommonFilterComponent } from './components/explore-page/filter/filter.component';
-import { ExploreFiltersComponent } from './components/explore-page/filter/explore-filters.component';
+import { MovieDetailResolver } from 'app/components/movie-detail/movie-detail-resolver';
+import { PeopleCardComponent } from 'app/components/people-card/people-card.component';
+import { TopCastListComponent } from 'app/components/movie-detail/caster/top-cast-list.component';
+import { ReviewComponent } from 'app/components/review/review.component';
+import { ReviewsComponent } from 'app/components/movie-detail/reviews/reviews.component';
+import { SearchBarComponent } from 'app/components/main-page/search-bar/search-bar.component';
+import { NavigationBarComponent } from 'app/components/main-page/navigation-bar/navigation-bar.component';
+import { TrailerComponent } from 'app/components/movie-detail/trailer/trailer.component';
+import { SortComponent } from 'app/components/explore-page/sort/sort.component';
+import { CommonFilterComponent } from 'app/components/explore-page/filter/filter.component';
+import { ExploreFiltersComponent } from 'app/components/explore-page/filter/explore-filters.component';
 
 import '../assets/css/global.scss';
 

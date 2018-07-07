@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Review } from '../../../shared/review';
+import { Review } from 'app/shared/review';
 
 @Component({
   selector: 'reviews',

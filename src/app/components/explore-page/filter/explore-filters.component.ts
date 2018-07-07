@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FilterOption } from './filter.component';
-import { ExploreFetchOption, ExploreService } from '../../../services/explore.service';
+import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
 import { ActivatedRoute } from '@angular/router';
+
+import { FilterOption } from './filter.component';
 
 @Component({
   selector: 'explore-filter',

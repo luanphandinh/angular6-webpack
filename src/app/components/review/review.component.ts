@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Review } from '../../shared/review';
+import { Review } from 'app/shared/review';
 
 @Component({
   selector: 'review',

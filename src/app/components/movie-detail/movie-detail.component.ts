@@ -1,15 +1,18 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../services/movie.service';
 
-import { People } from '../../shared/people';
-import { Movie } from '../../shared/movie';
-import { Review } from '../../shared/review';
-import { Video } from '../../shared/video';
-import { TrailerComponent } from './trailer/trailer.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DataFormatter } from '../../shared/data-formatter';
-import { ExploreService } from '../../services/explore.service';
+
+import { People } from 'app/shared/people';
+import { Movie } from 'app/shared/movie';
+import { Review } from 'app/shared/review';
+import { Video } from 'app/shared/video';
+import { DataFormatter } from 'app/shared/data-formatter';
+
+import { MovieService } from 'app/services/movie.service';
+import { ExploreService } from 'app/services/explore.service';
+
+import { TrailerComponent } from 'app/components/movie-detail/trailer/trailer.component';
 
 @Component({
   selector: 'movie-detail',

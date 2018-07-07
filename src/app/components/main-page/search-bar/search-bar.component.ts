@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExploreFetchOption, ExploreService } from '../../../services/explore.service';
-import { map } from 'rxjs/internal/operators';
 
+import { map } from 'rxjs/internal/operators';
+import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
 
 @Component({
   selector: 'search-bar',
