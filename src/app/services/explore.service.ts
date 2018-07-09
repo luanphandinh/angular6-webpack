@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs/index';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
 
 import { FilterOption } from 'app/components/explore-page/filter/filter.component';
-import { GatewayService } from './gateway.service';
+import { GatewayService } from 'app/services/gateway.service';
 
 @Injectable({
   providedIn: 'root',
