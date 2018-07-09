@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
+import { ExploreFetchOption, ExploreService } from 'app/movie-app/services/explore.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { FilterOption } from './filter.component';

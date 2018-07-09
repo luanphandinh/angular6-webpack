@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { People } from 'app/shared/people';
+import { People } from 'app/movie-app/shared/people';
 
 @Component({
   selector: 'people-card',

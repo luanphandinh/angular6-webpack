@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
 
-import { FilterOption } from 'app/components/explore-page/filter/filter.component';
-import { GatewayService } from 'app/services/gateway.service';
+import { FilterOption } from 'app/movie-app/components/explore-page/filter/filter.component';
+import { GatewayService } from 'app/movie-app/services/gateway.service';
 
 @Injectable({
   providedIn: 'root',

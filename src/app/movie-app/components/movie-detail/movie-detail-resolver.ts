@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
-import { Movie } from 'app/shared/movie';
-import { MovieService } from 'app/services/movie.service';
+import { Movie } from 'app/movie-app//shared/movie';
+import { MovieService } from 'app/movie-app//services/movie.service';
 
 
 @Injectable()

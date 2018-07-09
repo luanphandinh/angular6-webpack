@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Movie } from 'app/shared/movie';
-import { People } from 'app/shared/people';
-import { Review } from 'app/shared/review';
-import { Video } from 'app/shared/video';
+import { Movie } from 'app/movie-app/shared/movie';
+import { People } from 'app/movie-app/shared/people';
+import { Review } from 'app/movie-app/shared/review';
+import { Video } from 'app/movie-app/shared/video';
 
 import { GatewayService } from './gateway.service';
 

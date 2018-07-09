@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Movie } from 'app/shared/movie';
+import { Movie } from 'app/movie-app/shared/movie';
 @Component({
   selector: 'movie-card',
   styleUrls: ['./movie-card.component.css'],

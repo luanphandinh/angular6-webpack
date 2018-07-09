@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { People } from 'app/shared/people';
+import { People } from 'app/movie-app/shared/people';
 
 @Component({
   selector: 'top-cast-list',

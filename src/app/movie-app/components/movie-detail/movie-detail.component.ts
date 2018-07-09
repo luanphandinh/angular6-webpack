@@ -3,16 +3,16 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { People } from 'app/shared/people';
-import { Movie } from 'app/shared/movie';
-import { Review } from 'app/shared/review';
-import { Video } from 'app/shared/video';
-import { DataFormatter } from 'app/shared/data-formatter';
+import { People } from 'app/movie-app/shared/people';
+import { Movie } from 'app/movie-app/shared/movie';
+import { Review } from 'app/movie-app/shared/review';
+import { Video } from 'app/movie-app/shared/video';
+import { DataFormatter } from 'app/movie-app/shared/data-formatter';
 
-import { MovieService } from 'app/services/movie.service';
-import { ExploreService } from 'app/services/explore.service';
+import { MovieService } from 'app/movie-app/services/movie.service';
+import { ExploreService } from 'app/movie-app/services/explore.service';
 
-import { TrailerComponent } from 'app/components/movie-detail/trailer/trailer.component';
+import { TrailerComponent } from 'app/movie-app/components/movie-detail/trailer/trailer.component';
 
 @Component({
   selector: 'movie-detail',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { map } from 'rxjs/internal/operators';
-import { ExploreFetchOption, ExploreService } from 'app/services/explore.service';
+import { ExploreFetchOption, ExploreService } from 'app/movie-app/services/explore.service';
 
 @Component({
   selector: 'search-bar',
@@ -68,7 +68,7 @@ export class SearchBarComponent implements OnInit {
     this.fetchOptions.with_genres = null;
     this.fetchOptions.with_original_language = null;
     this.exploreService.extendOptions(this.fetchOptions, true);
-    this.router.navigateByUrl(`app/detail/${this.type}/${item.id}`);
+    this.router.navigateByUrl(`app/movie-app/detail/${this.type}/${item.id}`);
   }
 
 
