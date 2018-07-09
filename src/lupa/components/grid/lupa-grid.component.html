@@ -1,0 +1,19 @@
+<div
+  class="row"
+  infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+  <div class="col-md-6 col-lg-3 grid-item"
+    *ngFor="let item of items; trackBy: trackingItem"
+    (mouseenter)="!onSelectMode ? item.data.isHover=true : ''"
+    (mouseleave)="!onSelectMode ? item.data.isHover=false : ''">
+    <div class="grid-checkbox" [ngStyle]="{ opacity: item.data.isHover ? 1 : 0 }">
+      <div class="checkbox">
+        <input type="checkbox" [(ngModel)]="checked[item.data.id]" (click)="onSelectItem(item)" [attr.checked]="checked[item.data.id]">
+        <span class="checkmark"></span>
+      </div>
+    </div>
+    <lupa-view-item [item]="item" [layout]="layout"></lupa-view-item>
+  </div>
+</div>
