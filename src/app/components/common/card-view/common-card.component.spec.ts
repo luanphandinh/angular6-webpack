@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonCardViewComponent } from './common-card.component';
+import { CommonCardViewComponent } from 'app/components/common/card-view/common-card.component';
 
 describe('CommonCardViewComponent', () => {
   let component: CommonCardViewComponent;
@@ -9,7 +9,7 @@ describe('CommonCardViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommonCardViewComponent ]
+      declarations: [CommonCardViewComponent],
     })
     .compileComponents();
   }));
@@ -45,7 +45,8 @@ describe('CommonCardViewComponent', () => {
     // const imageUrl = component.getLogoStyle();
     // expect(imageUrl).toEqual({ backgroundImage: 'url(\'http://image\')' });
     // fixture.detectChanges();
-    // expect(element.querySelector('.common-card-view--cover').getAttribute('style')).toBe('background-image: url("http://image");');
+    // expect(element.querySelector('.common-card-view--cover')
+    // .getAttribute('style')).toBe('background-image: url("http://image");');
 
     component.image = undefined;
     component.ngOnInit();
