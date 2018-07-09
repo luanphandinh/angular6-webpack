@@ -6,7 +6,7 @@ import { Movie } from 'app/shared/movie';
   selector: 'movie-card',
   styleUrls: ['./movie-card.component.css'],
   template: `
-    <common-card-view
+    <lupa-card
       [image]="data.image"
       [overview]="data.overview"
       [title]="data.title"
@@ -14,7 +14,7 @@ import { Movie } from 'app/shared/movie';
       [isHover]="data.isHover"
       [cardObject]="data"
       (clickCard)="onClickCard($event)">
-    </common-card-view>
+    </lupa-card>
   `,
 })
 export class MovieCardComponent implements OnInit {

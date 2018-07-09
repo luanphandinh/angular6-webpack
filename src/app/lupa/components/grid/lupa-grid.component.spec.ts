@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
-import { GridComponent } from 'app/components/common/grid/grid.component';
-import { GridViewItemComponent } from 'app/components/common/grid-view-item/grid-view-item.component';
+import { GridComponent } from './lupa-grid.component';
+import { GridItemComponent } from './grid-item/grid-item.component';
 
 describe('GridComponent', () => {
   let component: GridComponent;
@@ -12,7 +12,7 @@ describe('GridComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [InfiniteScrollModule, FormsModule],
-      declarations: [GridComponent, GridViewItemComponent],
+      declarations: [GridComponent, GridItemComponent],
     })
     .compileComponents();
   }));

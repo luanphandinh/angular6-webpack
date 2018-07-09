@@ -9,7 +9,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from 'app/app.component';
-import { CommonComponentsModule } from 'app/components/common/common-components.module';
 import { MovieCardComponent } from 'app/components/movie-card/movie-card.component';
 import { ExplorePageComponent } from 'app/components/explore-page/explore-page.component';
 import { MovieService } from 'app/services/movie.service';
@@ -30,6 +29,7 @@ import { TrailerComponent } from 'app/components/movie-detail/trailer/trailer.co
 import { SortComponent } from 'app/components/explore-page/sort/sort.component';
 import { CommonFilterComponent } from 'app/components/explore-page/filter/filter.component';
 import { ExploreFiltersComponent } from 'app/components/explore-page/filter/explore-filters.component';
+import { LupaComponentsModule } from 'app/lupa/components/lupa-components.module';
 
 import '../assets/css/global.scss';
 
@@ -37,12 +37,12 @@ import '../assets/css/global.scss';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    CommonComponentsModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
     YoutubePlayerModule,
     NgSelectModule,
     FormsModule,
+    LupaComponentsModule,
     RouterModule.forRoot(appRoutes),
   ],
   declarations: [
