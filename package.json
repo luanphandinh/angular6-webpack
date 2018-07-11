@@ -36,6 +36,8 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
+    "@angular-devkit/build-optimizer": "^0.6.8",
+    "@ngtools/webpack": "^6.0.8",
     "@types/jasmine": "^2.8.7",
     "@types/node": "^10.0.4",
     "@types/youtube": "0.0.32",
