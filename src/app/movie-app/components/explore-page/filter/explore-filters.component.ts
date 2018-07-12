@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { ExploreFetchOption, ExploreService } from 'app/movie-app/services/explore.service';
 import { ActivatedRoute } from '@angular/router';
 

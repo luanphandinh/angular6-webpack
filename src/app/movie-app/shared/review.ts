@@ -11,6 +11,7 @@ export class Review {
     const content: string = blob.content;
     const id: string = blob.id;
     const url: string = blob.url;
+
     return new Review(
       author,
       content,
@@ -35,6 +36,7 @@ export class Review {
     limittedBlobs.forEach((blob: any) => {
       collections.push(Review.createFromResponse(blob));
     });
+
     return collections;
   }
 }

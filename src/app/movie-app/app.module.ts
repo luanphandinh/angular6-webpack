@@ -33,6 +33,8 @@ import { ExploreFiltersComponent } from 'app/movie-app/components/explore-page/f
 import { LupaComponentsModule } from 'app/lupa/components/lupa-components.module';
 
 import '../../assets/css/global.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 @NgModule({
   imports: [

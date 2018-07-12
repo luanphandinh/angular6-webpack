@@ -1,4 +1,4 @@
-var isProd = process.env.NODE_ENV === 'productions';
+var isProd = process.env.NODE_ENV === 'production';
 
 if (isProd) {
   module.exports = require('./config/webpack.prod.js');

@@ -13,13 +13,13 @@ module.exports = webpackMerge(commonConfig({env: ENV}), {
     path: helpers.root('dist'),
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[name].chunk.js'
   },
 
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
+      chunkFilename: "[name].css"
     })
   ],
 

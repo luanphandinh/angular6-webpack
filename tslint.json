@@ -1,0 +1,14 @@
+{
+  "extends": "tslint-config-airbnb",
+  "rulesDirectory": [
+    // "node_modules/rxjs-tslint",
+    "node_modules/tslint-config-airbnb"
+  ],
+  "rules": {
+    "max-line-length": [true, 140]
+    // "rxjs-collapse-imports": true,
+    // "rxjs-pipeable-operators-only": true,
+    // "rxjs-no-static-observable-methods": true,
+    // "rxjs-proper-imports": true
+  }
+}

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { map } from 'rxjs/operators';
 
 import { FilterOption } from 'app/movie-app/components/explore-page/filter/filter.component';
 import { GatewayService } from 'app/movie-app/services/gateway.service';

@@ -1,9 +1,7 @@
-import {
-  Component, Input, OnInit, Output, EventEmitter,
-} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({

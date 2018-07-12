@@ -13,6 +13,7 @@ export class ProductionCompany {
       : null;
     const name: string = blob.name;
     const originCountry: string = blob.origin_country;
+
     return new ProductionCompany(
       id,
       logoPath,
@@ -38,6 +39,7 @@ export class ProductionCompany {
       }
       collections.push(ProductionCompany.createFromResponse(blob));
     });
+
     return collections;
   }
 }

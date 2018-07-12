@@ -15,6 +15,7 @@ export class DataFormatter {
     if (width && height)  {
       return ['https://image.tmdb.org/t/p/w', width, '_and_h',height,'_face/', imageUrl].join('');
     }
+
     return ['https://image.tmdb.org/t/p/w', 400, '/', imageUrl].join('');
   }
 
@@ -27,6 +28,7 @@ export class DataFormatter {
   static formateVideoSize(maxWidth: number = 1080, maxHeight: number = 720): any {
     const width = window.innerWidth < maxWidth ? window.innerWidth : maxWidth;
     const height = window.innerHeight < maxHeight ? window.innerHeight : maxHeight;
+
     return {
       width,
       height,

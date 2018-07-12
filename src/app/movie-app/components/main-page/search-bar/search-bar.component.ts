@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { map } from 'rxjs/internal/operators';
+import { map } from 'rxjs/operators';
 import { ExploreFetchOption, ExploreService } from 'app/movie-app/services/explore.service';
 
 @Component({

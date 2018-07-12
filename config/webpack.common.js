@@ -1,27 +1,44 @@
-const webpack = require('webpack');
 const helpers = require('./helpers');
+const buildUtils = require('./build-utils');
+
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const WebpackInlineManifestPlugin = require('webpack-inline-manifest-plugin');
+
 const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 
 module.exports = function(options) {
+  const isProd = options.env === 'production';
+  const METADATA = Object.assign({}, buildUtils.DEFAULT_METADATA, options.metadata || {});
+  const supportES2015 = buildUtils.supportES2015(METADATA.tsConfigPath);
+  const ngcWebpackConfig = buildUtils.ngcWebpackSetup(isProd, METADATA);
+
+  const entry = {
+    'polyfills': helpers.root('./src/polyfills.ts'),
+    'app': helpers.root('./src/main.ts')
+  };
+
+  Object.assign(ngcWebpackConfig.plugin, {
+    tsConfigPath: METADATA.tsConfigPath,
+    mainPath: entry.app
+  });
+
   return {
-    entry: {
-      'polyfills': helpers.root('./src/polyfills.ts'),
-      'vendor': helpers.root('./src/vendor.ts'),
-      'app': helpers.root('./src/main.ts')
-    },
-  
+    entry,
+
+    // https://webpack.js.org/configuration/resolve/
     resolve: {
-      extensions: ['.ts', '.js'],
-      modules: [
-        helpers.root('./node_modules'),
-        helpers.root('src'),
-      ],
+      mainFields: [...(supportES2015 ? ['es2015'] : []), 'browser', 'module', 'main'], 
+      extensions: ['.ts', '.js', 'json'], 
+      modules: [ helpers.root('src'), helpers.root('node_modules') ],
+      alias: buildUtils.rxjsAlias(false),
     },
   
     module: {
       rules: [
+        ...ngcWebpackConfig.loaders,
         {
           test: /\.ts$/,
           enforce: 'pre',
@@ -29,17 +46,6 @@ module.exports = function(options) {
           options: {
             emitErrors: true
           }
-        },
-        {
-          test: /\.ts$/,
-          use: [
-            {
-              loader: 'awesome-typescript-loader',
-              options: {
-                configFileName: helpers.root('src', 'tsconfig.json')
-              }
-            } , 'angular2-template-loader'
-          ]
         },
         {
           test: /\.html$/,
@@ -66,18 +72,6 @@ module.exports = function(options) {
       ]
     },
   
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "common",
-            chunks: "all",
-          }
-        }
-      }
-    },
-  
     plugins: [
       // Workaround for angular/angular#11580
       new webpack.ContextReplacementPlugin(
@@ -87,12 +81,23 @@ module.exports = function(options) {
         helpers.root('./src'), // location of your src
         {} // a map of your routes
       ),
+
+      new AngularCompilerPlugin(ngcWebpackConfig.plugin),
   
       new HtmlWebpackPlugin({
         title: 'Angular Webpack',
         name: 'index.html',
         template: 'src/index.tpl.html'
-      })
+      }),
+
+      new ScriptExtHtmlWebpackPlugin({
+        sync: /inline|polyfills|vendor/,
+        defaultAttribute: 'async',
+        preload: [/polyfills|vendor|main/],
+        prefetch: [/chunk/]
+      }),
+
+      new WebpackInlineManifestPlugin(),
     ]
   };
 }

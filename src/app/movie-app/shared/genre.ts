@@ -7,6 +7,7 @@ export class Genre {
   static createFromResponse(blob: any): Genre {
     const id: number = blob.id;
     const name: string = blob.name;
+
     return new Genre(
       id,
       name,
@@ -21,6 +22,7 @@ export class Genre {
     blobs.forEach((blob: any) => {
       collections.push(Genre.createFromResponse(blob));
     });
+
     return collections;
   }
 }
