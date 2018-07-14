@@ -1,0 +1,59 @@
+<div class="movie-header" [ngStyle]="movie.getBackdropImageStyle()">
+  <div class="custom_bg">
+    <div class="container">
+      <a (click)="backToExplore()" class="header-link has-cursor">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        <span>Back to search results</span>
+      </a>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card has-cursor">
+            <div class="card-cover" [ngStyle]="movie.getLogoStyle()" (click)="openTrailerModal()"></div>
+          </div>
+        </div>
+        <div class="col-md-8 movie-content">
+          <div class="header-title"> {{ movie.title }} <span class="text-md ml-2">Relase date : {{ movie.releaseDate }}</span></div>
+          <div class="play-trailer text-grey has-cursor" (click)="openTrailerModal()">
+            <i class="fa fa-play fa-1x text-grey" aria-hidden="true"></i>
+            <span class="text-grey text-bold">Watch trailer</span>
+          </div>
+          <div *ngIf="movie.overview">
+            <div class="about">Overview</div>
+            <div [innerHTML]="movie.overview" class="text-md"></div>
+          </div>
+          <div *ngIf="movie.genres">
+            <div class="about">Genres</div>
+            <span class="genre text-grey" *ngFor="let genre of movie.genres">{{genre.name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container content-section mb-5">
+  <div *ngIf="movie.productions" class="production-list mb-4">
+    <div class="production-overview"
+         *ngFor="let production of movie.productions">
+      <div class="production-image">
+        <img src="{{ production.logoPath }}" alt="" width="80" height="80">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="about">Top cast</div>
+      <top-cast-list [peoples]="peoples"></top-cast-list>
+      <div *ngIf="reviews">
+        <div class="about">Reviews</div>
+        <reviews [reviews]="reviews"></reviews>
+      </div>
+    </div>
+    <div class="col-md-2" *ngIf="similarMovies">
+      <div class="about">Recommendations</div>
+      <div class="similar-card" *ngFor="let movie of similarMovies">
+        <movie-card [data]="movie"></movie-card>
+      </div>
+    </div>
+  </div>
+</div>

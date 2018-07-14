@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+@import '../../styles/styles.scss';
+
+.text-md {
+  color: black;
+  padding: 0px 10px;
+}
+
+review-wrapper {
+  display: table;
+}
+
+.avatar-wrapper {
+  padding: 10px;
+  width: 64px;
+  margin-right: 20px;
+  display: table-cell;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #fff;
+  line-height: 64px;
+  text-align: center;
+  background-color: #01c6ac;
+}
+
+
+.review-content {
+  padding: 10px;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.character_name {
+  max-height: 25px;
+}
+

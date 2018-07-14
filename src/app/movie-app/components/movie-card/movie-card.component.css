@@ -1,0 +1,12 @@
+.course-actions {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  right: 20px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+

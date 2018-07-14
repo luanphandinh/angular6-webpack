@@ -3,21 +3,23 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const commonConfig = require('./webpack.common.js');
 const helpers = require('./helpers');
 
-module.exports = webpackMerge(commonConfig, {
+const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+
+module.exports = webpackMerge(commonConfig({env: ENV}), {
   mode: 'development',
-  devtool: 'cheap-module-source-map',
+  devtool: 'inline-source-map',
 
   output: {
     path: helpers.root('dist'),
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[name].chunk.js'
   },
 
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
+      chunkFilename: "[name].css"
     })
   ],
 

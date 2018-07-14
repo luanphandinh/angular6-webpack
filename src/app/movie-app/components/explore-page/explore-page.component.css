@@ -1,0 +1,57 @@
+.total-text {
+  font-size: 20px;
+  padding: 10px 0px;
+}
+
+.loading {
+  height: 300px;
+  width: 100%;
+}
+
+.add-all {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+}
+
+.search-bar {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  :host ::ng-deep .common-card-view--inner {
+    height: 500px !important;
+  }
+
+  :host ::ng-deep .common-card-view--cover {
+    -webkit-flex-basis: 336px !important;
+    flex-basis: 336px !important;
+  }
+}
+
+:host ::ng-deep .search-wrapper {
+  max-width: 100% !important;
+}
+
+:host ::ng-deep .search-wrapper form {
+  width: 90% !important;
+}
+
+:host ::ng-deep .search-wrapper button.btn-primary {
+  width: 10% !important;
+}
+
+.sort-wrapper {
+  width: 100%;
+  text-align: right;
+  position: relative;
+  top: -30px;
+  right: -13px;
+}

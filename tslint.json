@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "rxjs-tslint-rules",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "max-line-length": [true, 140],
+    "rxjs-no-add": { "severity": "error" },
+    "rxjs-no-patched": { "severity": "error" },
+    "rxjs-no-wholesale": { "severity": "error" }
+  }
+}

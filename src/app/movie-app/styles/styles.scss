@@ -1,0 +1,36 @@
+@import "variables";
+
+.text-md {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.text-sm {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.has-cursor {
+  cursor: pointer;
+}
+
+.has-border {
+  border: 1px solid #e3e3e3;
+  padding-bottom: 10px;
+}
+
+.has-box-shadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.dark-bg {
+  background-color: #35464B !important;
+}

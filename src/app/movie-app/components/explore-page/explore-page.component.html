@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <!--<search-bar class="search-bar mb-4"></search-bar>-->
+  <div class="explore-filter-wrapper">
+    <explore-filter></explore-filter>
+  </div>
+  <div *ngIf="total">
+    <span class="total-text mr-4">{{ selectedCount ? selectedCount + ' of ' + total + ' Movies selected' : total + ' Movies' }}</span>
+    <div class="sort-wrapper">
+      <sort></sort>
+    </div>
+  </div>
+  <lupa-grid
+    [items]="items"
+    (loadItems)="fetchMovies()"
+    (selectItem)="onSelectedItem($event)">
+  </lupa-grid>
+  <div class="loading" *ngIf="loading">
+    <i class="fa fa-spinner fa-spin mr-xl-1" aria-hidden="true"></i>
+    <span>Loading...</span>
+  </div>
+</div>
