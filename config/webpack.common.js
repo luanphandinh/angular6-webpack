@@ -31,7 +31,7 @@ module.exports = function(options) {
     // https://webpack.js.org/configuration/resolve/
     resolve: {
       mainFields: [...(supportES2015 ? ['es2015'] : []), 'browser', 'module', 'main'], 
-      extensions: ['.ts', '.js', 'json'], 
+      extensions: ['.ts', '.js', '.json'], 
       modules: [ helpers.root('src'), helpers.root('node_modules') ],
       alias: buildUtils.rxjsAlias(false),
     },
